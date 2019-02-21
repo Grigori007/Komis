@@ -14,9 +14,11 @@ namespace Komis
     {
         public static void Main(string[] args)
         {
+            // kreacja hosta
             CreateWebHostBuilder(args).Build().Run();
         }
 
+        // konfiguracja hosta z pewnymi wstpenymi danymi
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
