@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Komis.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Komis
@@ -17,6 +13,10 @@ namespace Komis
         public void ConfigureServices(IServiceCollection services)
         {
             // uslugi -> obiekty, ktore maja okreslona funkcjonalnosci dla innych czesci aplikacji
+
+            // Za kazdym razem gdy ktos poprosi o instancje ICarRepository, zamiast tego dana mu zostanie instancja klasy testowej MockCarRepository
+            services.AddTransient<ICarRepository, MockCarRepository>();
+            // Zamiast AddTransient() pozniej bedzie trzeba uzyc AddScoped lub AddSingleton
             services.AddMvc();
         }
 
