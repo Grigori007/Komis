@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Komis.Models;
+using Komis.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Komis.Models;
+using System.Linq;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Komis.Controllers
@@ -21,9 +19,16 @@ namespace Komis.Controllers
         //GET: /<controller>/
         public IActionResult Index()
         {
-            // viewBag jest dynamiczny
-            ViewBag.Title = "Car review";
-            return View();
+            // viewBag jest dynamiczny 
+            var cars = _carRepository.GetAllCars().OrderBy(s => s.Mark);
+            // model homeVM gromadzi w sobie wszystkie dane, ktore ma wyrenderowac widok Index
+            var homeVM = new HomeViewModel()
+            {
+                Title = "Car review",
+                CarList = cars.ToList()
+            };
+
+            return View(homeVM);
         }
     }
 }

@@ -1,1 +1,18 @@
-﻿
+﻿@model IEnumerable<Komis.Models.Car>
+@*Okreslamy typ widoku - strona razor zaczyna dziedziczyc z Car.cs*@
+
+<h2>@ViewBag.Title</h2>
+
+@foreach (var car in Model)
+{
+    <div>
+        <h2>@car.Mark</h2>
+        <h2>@car.Model</h2>
+        <h3>@car.ProductionDate</h3>
+        <h3>@car.Mileage</h3>
+        <h4>@car.EngineCapacity</h4>
+        <h4>@car.Power</h4>
+        <h5>@car.Price.ToString("c")</h5>
+        <p>@car.CarDescription</p>
+    </div>
+}
