@@ -4,12 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Komis.Models;
-
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Komis.Controller
+namespace Komis.Controllers
 {
-    public class HomeController : ControllerBase
+    public class HomeController : Controller
     {
         private readonly ICarRepository _carRepository;
 
@@ -19,9 +18,11 @@ namespace Komis.Controller
             // w tym kontrolerze przekazywany jest interfejs ICarRepository. DI automatycznie wstrzykuje tu jego instancje (wstrzykniece konstruktora)
             _carRepository = carRepository;
         }
-        // GET: /<controller>/
+        //GET: /<controller>/
         public IActionResult Index()
         {
+            // viewBag jest dynamiczny
+            ViewBag.Title = "Car review";
             return View();
         }
     }

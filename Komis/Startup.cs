@@ -1,6 +1,7 @@
 ﻿using Komis.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Komis
@@ -17,7 +18,7 @@ namespace Komis
             // Za kazdym razem gdy ktos poprosi o instancje ICarRepository, zamiast tego dana mu zostanie instancja klasy testowej MockCarRepository
             services.AddTransient<ICarRepository, MockCarRepository>();
             // Zamiast AddTransient() pozniej bedzie trzeba uzyc AddScoped lub AddSingleton
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
