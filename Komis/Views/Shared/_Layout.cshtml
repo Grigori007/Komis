@@ -3,12 +3,17 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap-4.0.0-dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="~/content/site.css" rel="stylesheet"/>
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
-        @*RenderBody() renderuje w tym miejscu widok, ktory dziedziczy po schemacie _Layout (renderuje widok dziedziczacy) *@
+    <div class="container body-content">
+        <div class="row">
+            @RenderBody()
+            @*RenderBody() renderuje w tym miejscu widok, ktory dziedziczy po schemacie _Layout (renderuje widok dziedziczacy) *@
+        </div>
     </div>
 </body>
 </html>

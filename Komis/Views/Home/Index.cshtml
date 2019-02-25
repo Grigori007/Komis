@@ -1,18 +1,29 @@
-﻿@model IEnumerable<Komis.Models.Car>
+﻿@model Komis.ViewModels.HomeViewModel
 @*Okreslamy typ widoku - strona razor zaczyna dziedziczyc z Car.cs*@
 
-<h2>@ViewBag.Title</h2>
+<h2>@Model.Title</h2>
 
-@foreach (var car in Model)
+@foreach (var car in Model.CarList)
 {
-    <div>
-        <h2>@car.Mark</h2>
-        <h2>@car.Model</h2>
-        <h3>@car.ProductionDate</h3>
-        <h3>@car.Mileage</h3>
-        <h4>@car.EngineCapacity</h4>
-        <h4>@car.Power</h4>
-        <h5>@car.Price.ToString("c")</h5>
-        <p>@car.CarDescription</p>
+    <div class="col-sm-4 col-lg-4 col-md-4" >
+        <div class="img-thumbnail">
+            <img src="@car.MiniImageUrl" alt="" />
+            <div class="figure-caption">
+                <h3 class="pull-right">@car.Price.ToString("c")</h3>
+                <h3>
+                    @car.Mark - @car.Model - @car.ProductionDate
+                </h3>
+                <h4>
+                    Przebieg : @car.Mileage
+                </h4>
+                <h4>
+                    Pojemność : @car.EngineCapacity
+                </h4>
+                <h4>
+                    Moc : @car.Power
+                </h4>
+                <p>@car.CarDescription</p>
+            </div>
+        </div>
     </div>
 }

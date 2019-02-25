@@ -1,0 +1,10 @@
+﻿body {
+    background-image: url("../images/bg.jpg");
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.body-content{
+    padding-left: 10px;
+    padding-right: 10px;
+}
