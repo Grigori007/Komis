@@ -18,7 +18,7 @@ namespace Komis
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        // konfiguracja hosta z pewnymi wstpenymi danymi
+        // konfiguracja hosta z pewnymi wstpenymi danymi. Odczytuje automatycznie plik appsettings.json
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
