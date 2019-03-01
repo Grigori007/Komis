@@ -20,6 +20,7 @@ namespace Komis.Models
         public string MiniImageUrl { get; set; }
         public bool IsCarOfTheWeek { get; set; }
         public string CarDescription { get; set; }
+        public bool IsInHQ { get; set; }
     }
 
 
