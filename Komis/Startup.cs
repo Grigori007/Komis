@@ -17,8 +17,7 @@ namespace Komis
         {
             Configuration = configuration;
         }
-        
-        
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         // rejestrowanie uslug (dependency injection)
@@ -30,7 +29,7 @@ namespace Komis
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             // Za kazdym razem gdy ktos poprosi o instancje ICarRepository, zamiast tego dana mu zostanie instancja klasy testowej MockCarRepository. EDIT: Teraz dajemy instancje CarRepository obslugujaca baze danych.
             services.AddTransient<ICarRepository, CarRepository>();
-            // Zamiast AddTransient() pozniej bedzie trzeba uzyc AddScoped lub AddSingleton
+            // Zamiast AddTransient() pozniej bedzie trzeba uzyc AddScoped lub AddSingleton???
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -40,8 +39,13 @@ namespace Komis
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute(); // ten komponent powinien byc zawsze? na kocu
-
+            // ten komponent powinien byc zawsze? na koncu
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

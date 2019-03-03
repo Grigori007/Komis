@@ -16,7 +16,8 @@ namespace Komis.Controllers
             // w tym kontrolerze przekazywany jest interfejs ICarRepository. DI automatycznie wstrzykuje tu jego instancje (wstrzykniece konstruktora)
             _carRepository = carRepository;
         }
-        //GET: /<controller>/
+
+        // GET: /<controller>/
         public IActionResult Index()
         {
             // viewBag jest dynamiczny 
@@ -29,6 +30,19 @@ namespace Komis.Controllers
             };
 
             return View(homeVM);
+        }
+
+        // GET: 
+        public IActionResult Details(int id)
+        {
+            var car = _carRepository.GetOneCarById(id);
+
+            if (car == null)
+            {
+                return NotFound(); // error 404
+            }
+
+            return View(car);
         }
     }
 }

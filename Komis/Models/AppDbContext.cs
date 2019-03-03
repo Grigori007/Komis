@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-//klasa jest posrednikiem miedzy kodem a baza danych
+// ta klasa jest posrednikiem miedzy kodem a baza danych
 namespace Komis.Models
 {
     public class AppDbContext : DbContext

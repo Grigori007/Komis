@@ -27,7 +27,7 @@ namespace Komis
                 var services = scope.ServiceProvider;
                 try
                 {
-                    // uzywamy to Dependency Injection by zyskac dostep do kontenera zaleznosci AppDbContext
+                    // uzywamy tu Dependency Injection by zyskac dostep do kontenera zaleznosci AppDbContext
                     var context = services.GetRequiredService<AppDbContext>();
                     context.Database.Migrate();
                     DbInitializer.Seed(context);
