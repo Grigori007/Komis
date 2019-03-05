@@ -1,29 +1,28 @@
 ﻿@model HomeViewModel
 @*Okreslamy typ widoku - strona razor zaczyna dziedziczyc z Car.cs*@
-
-<h2>@Model.Title</h2>
+<div class="container padding-top-bottom"><h2>@Model.Title</h2></div>
 
 @foreach (var car in Model.CarList)
 {
-    <div class="col-sm-4 col-lg-4 col-md-4" >
-        <div class="img-thumbnail">
-            <img class="img-small" src="@car.MiniImageUrl" alt="" />
-            <div class="figure-caption">
-                <h3 class="pull-right">@car.Price.ToString("c")</h3>
-                <h3>
-                    <a asp-controller="Home" asp-action="Details" asp-route-id="@car.CarId">@car.Mark</a> - @car.Model - @car.ProductionDate
-                </h3>
-                <h4>
-                    Przebieg : @car.Mileage
-                </h4>
-                <h4>
-                    Pojemność : @car.EngineCapacity
-                </h4>
-                <h4>
-                    Moc : @car.Power
-                </h4>
-                <p>@car.CarDescription</p>
+        <div class="col-sm-4 col-md-4 col-lg-4 padding-top-bottom">
+            <div class="img-thumbnail" id="div-dark">
+                <img class="img-small" src="@car.MiniImageUrl" alt="" />
+                <div class="figure-caption">
+                    <h3 class="pull-right">@car.Price.ToString("c")</h3>
+                    <h3>
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@car.CarId">@car.Mark</a> - @car.Model - @car.ProductionDate
+                    </h3>
+                    <h4>
+                        Przebieg : @car.Mileage
+                    </h4>
+                    <h4>
+                        Pojemność : @car.EngineCapacity
+                    </h4>
+                    <h4>
+                        Moc : @car.Power
+                    </h4>
+                    <p>@car.CarDescription</p>
+                </div>
             </div>
         </div>
-    </div>
 }

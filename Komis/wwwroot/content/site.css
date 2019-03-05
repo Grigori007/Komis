@@ -7,6 +7,7 @@
 .body-content{
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 50px;
 }
 
 .img-small {
@@ -17,4 +18,22 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.padding-top-bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#div-dark {
+    background-color: #4a555b;
+}
+
+#div-radius {
+    border-radius: 25px;
 }
