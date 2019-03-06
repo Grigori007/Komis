@@ -30,6 +30,7 @@ namespace Komis
             // Za kazdym razem gdy ktos poprosi o instancje ICarRepository, zamiast tego dana mu zostanie instancja klasy testowej MockCarRepository. EDIT: Teraz dajemy instancje CarRepository obslugujaca baze danych.
             services.AddTransient<ICarRepository, CarRepository>();
             // Zamiast AddTransient() pozniej bedzie trzeba uzyc AddScoped lub AddSingleton???
+            services.AddTransient<IOpinionRepository, OpinionRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

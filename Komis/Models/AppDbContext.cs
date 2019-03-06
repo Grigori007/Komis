@@ -11,5 +11,6 @@ namespace Komis.Models
         }
 
         public DbSet<Car> Cars { get; set; } // przekazuje klase Car jako parametr do bazy danych
+        public DbSet<Opinion> Opinions { get; set; }
     }
 }
