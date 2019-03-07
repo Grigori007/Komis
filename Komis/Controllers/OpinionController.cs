@@ -25,9 +25,15 @@ namespace Komis.Controllers
         [HttpPost]
         public IActionResult Index(Opinion opinion)
         {
-            _opinionRepository.AddOpinion(opinion);
+            if (ModelState.IsValid)
+            {
+                _opinionRepository.AddOpinion(opinion);
 
-            return RedirectToAction("FeedbackSent");
+                return RedirectToAction("FeedbackSent");
+            } else
+            {
+                return View(opinion);
+            }
         }
 
         public IActionResult FeedbackSent()

@@ -20,11 +20,6 @@
     background-size: cover;
 }
 
-.topnav {
-    overflow: hidden;
-    background-color: #333;
-}
-
 .padding-top-bottom {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -36,4 +31,13 @@
 
 #div-radius {
     border-radius: 25px;
+}
+
+.label-dark-rounded {
+    background-color: darkgray;
+    border-radius: 25px;
+}
+
+.hidden-overflow {
+    overflow: hidden;
 }
