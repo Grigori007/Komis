@@ -1,6 +1,7 @@
 ﻿using Komis.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,8 @@ namespace Komis
 
             // Dodaje obsluge bazy danych. Okreslamy tu tez rowniez ze bedziemy uzywac SQL Server. Poza tym w pliku appsettings.json trzeba skonfigurowac ConnectionString. Uzywamy instancji konfiguracji by zapewnic ciag polaczen.
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            // Dodaje podstawowy model uzytkownika i jego role, oraz dodaje kontekst naszej bazy danych
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             // Za kazdym razem gdy ktos poprosi o instancje ICarRepository, zamiast tego dana mu zostanie instancja klasy testowej MockCarRepository. EDIT: Teraz dajemy instancje CarRepository obslugujaca baze danych.
             services.AddTransient<ICarRepository, CarRepository>();
             // Zamiast AddTransient() pozniej bedzie trzeba uzyc AddScoped lub AddSingleton???
@@ -40,6 +43,7 @@ namespace Komis
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseAuthentication();
             // ten komponent powinien byc zawsze? na koncu
             app.UseMvc(routes =>
             {
