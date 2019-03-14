@@ -31,6 +31,16 @@ namespace Komis
             // Dodaje podstawowy model uzytkownika i jego role, oraz dodaje kontekst naszej bazy danych
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             // Za kazdym razem gdy ktos poprosi o instancje ICarRepository, zamiast tego dana mu zostanie instancja klasy testowej MockCarRepository. EDIT: Teraz dajemy instancje CarRepository obslugujaca baze danych.
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Default Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+            });
             services.AddTransient<ICarRepository, CarRepository>();
             // Zamiast AddTransient() pozniej bedzie trzeba uzyc AddScoped lub AddSingleton???
             services.AddTransient<IOpinionRepository, OpinionRepository>();
