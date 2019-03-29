@@ -7,13 +7,10 @@ namespace Komis.Models
 {
     public static class DbInitializer
     {
-        // przakazujemy tu AppDbContext. Inicjalizuje baze jeśli nie ma tam zanych danych.
-        // Metoda Seed bedzie wywolywana z klasy Program.cs
         public static void Seed(AppDbContext context)
         {
             if (!context.Cars.Any())
-            {
-                // Zmiany sa dodawane do AppDbContext. Usuwamy ID bo baza dodaje je automatycznie
+            {          
                 context.AddRange(
                 new Car { Mark = "Toyota", Model = "Corolla", ProductionDate = 2000, Mileage = "298000 km", EngineCapacity = "2000 cm3", FuelType = "Diesel", Power = "96", Price = 5000, ImageUrl = "", MiniImageUrl = "../images/corolla.jpg", IsCarOfTheWeek = true, CarDescription = "Opis 1" },
                 new Car { Mark = "Bentley", Model = "Continental Flying Spur", ProductionDate = 2009, Mileage = "65000 km", EngineCapacity = "6000 cm3", FuelType = "Petrol", Power = "610", Price = 239000, ImageUrl = "", MiniImageUrl = "../images/bentley flying spur.jpg", IsCarOfTheWeek = false, CarDescription = "Opis 2" },
@@ -23,7 +20,6 @@ namespace Komis.Models
                 new Car { Mark = "Jaguar", Model = "XJ X351", ProductionDate = 2017, Mileage = "26985 km", EngineCapacity = "2993 cm3", FuelType = "Diesel", Power = "300", Price = 177000, ImageUrl = "", MiniImageUrl = "../images/jaguar xj x351.jpg", IsCarOfTheWeek = false, CarDescription = "Opis 6" }
                 );
             }
-            // Zapis danych z AppDbContext do bazy danych
             context.SaveChanges();
         }
     }

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Komis.Models
 {
-    // Mock -> wersja probna do testowania
+   
     public class MockCarRepository : ICarRepository
     {
         private List<Car> _carsList;

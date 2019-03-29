@@ -2,7 +2,6 @@
 using Komis.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Komis.Controllers
 {
@@ -12,17 +11,14 @@ namespace Komis.Controllers
 
         public HomeController(ICarRepository carRepository)
         {
-            // _carRepository = new MockCarRepository(); -> gdybysmy nie uzywali depedncy injection to tak trzeba by bylo napisac. DI robi to za nas
-            // w tym kontrolerze przekazywany jest interfejs ICarRepository. DI automatycznie wstrzykuje tu jego instancje (wstrzykniece konstruktora)
             _carRepository = carRepository;
         }
 
         // GET: /<controller>/
         public IActionResult Index()
-        {
-            // viewBag jest dynamiczny 
+        { 
             var cars = _carRepository.GetAllCars().OrderBy(s => s.Mark);
-            // model homeVM gromadzi w sobie wszystkie dane, ktore ma wyrenderowac widok Index
+            
             var homeVM = new HomeViewModel()
             {
                 Title = "Car review",
@@ -39,7 +35,7 @@ namespace Komis.Controllers
 
             if (car == null)
             {
-                return NotFound(); // error 404
+                return NotFound(); 
             }
 
             return View(car);

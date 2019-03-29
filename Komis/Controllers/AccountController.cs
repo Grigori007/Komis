@@ -43,7 +43,7 @@ namespace Komis.Controllers
                 }
             }
 
-            ModelState.AddModelError("", "Username/password is invalid!"); // dodajemy niestandardowy błąd
+            ModelState.AddModelError("", "Username/password is invalid!"); 
 
             return View(loginViewModel);
         }
