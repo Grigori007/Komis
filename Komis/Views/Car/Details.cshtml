@@ -1,0 +1,27 @@
+﻿@model Car
+
+<div>
+    <div class="img-thumbnail">
+        <div class="row">
+            <div class="col-md-6">
+                <img alt="@Model.Mark" src="@Model.MiniImageUrl" height="500" width="500" />
+            </div>
+            <div class="col-md-3">
+                <h3>@Model.Mark - @Model.Model</h3>
+                <h4>@Model.Price</h4>
+                <h4>@Model.ProductionDate</h4>
+                <h4>@Model.Mileage</h4>
+                <h4>@Model.EngineCapacity</h4>
+                <h4>@Model.Power</h4>
+                <h4>@Model.CarDescription</h4>
+            </div>
+            <div class="col-md-3" style="padding-right:50px">
+                <h3 class="float-right">
+                    <a asp-action="Edit" asp-route-id="@Model.CarId" class="btn btn-success">Edit</a>
+                    <a asp-action="Index" class="btn btn-success">Back</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+

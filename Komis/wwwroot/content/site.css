@@ -41,3 +41,11 @@
 .hidden-overflow {
     overflow: hidden;
 }
+
+.margin-car-links {
+    margin-bottom: 3px;
+}
+
+.dark-table {
+    background-color: #343a40;
+}

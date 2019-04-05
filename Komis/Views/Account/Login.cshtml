@@ -2,28 +2,28 @@
 
 <h4><a asp-action="Register" asp-controller="Account"></a></h4>
 
-<form asp-action="Login" asp-controller="Account" method="post" role="form">
+<form asp-action="Login" asp-controller="Account" class="form-horizontal" method="post" role="form">
 
     <div asp-validation-summary="All" class="text-danger"></div>
 
-    <div class="form-group row">
-        <label asp-for="UserName" class="col-sm-4 col-md-4 col-lg-4 col-form-label">Username</label>
-        <div class="col-sm-8 col-md-8 col-lg-8">
+    <div class="form-group">
+        <label asp-for="UserName" class="col-md-2 control-label" >Username</label>
+        <div class="col-md-10">
             <input asp-for="UserName" class="form-control" placeholder="Username" />
             <span asp-validation-for="UserName" class="text-danger"></span>
         </div>
     </div>
 
-    <div class="form-group row">
-        <label asp-for="Password" class="col-sm-4 col-md-4 col-lg-4 col-form-label">Password</label>
+    <div class="form-group">
+        <label asp-for="Password" class="col-md-2 control-label">Password</label>
         <div class="col-sm-8 col-md-8 col-lg-8">
             <input asp-for="Password" class="form-control" placeholder="Password" />
             <span asp-validation-for="Password" class="text-danger"></span>
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-sm-8 col-md-8 col-lg-8">
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-primary" value="Login" />
         </div>
     </div>

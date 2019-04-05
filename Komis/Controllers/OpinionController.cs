@@ -7,11 +7,11 @@ namespace Komis.Controllers
     [Authorize]
     public class OpinionController : Controller
     {
-        private readonly IOpinionRepository _opinionRepository;
+        private readonly IOpinionRepository opinionRepository;
 
-        public OpinionController(IOpinionRepository opinionRepository)
+        public OpinionController(IOpinionRepository _opinionRepository)
         {
-            _opinionRepository = opinionRepository;
+            opinionRepository = _opinionRepository;
         }
 
         [HttpGet]
@@ -25,9 +25,9 @@ namespace Komis.Controllers
         {
             if (ModelState.IsValid)
             {
-                _opinionRepository.AddOpinion(opinion);
-
+                opinionRepository.AddOpinion(opinion);
                 return RedirectToAction("FeedbackSent");
+
             } else
             {
                 return View(opinion);

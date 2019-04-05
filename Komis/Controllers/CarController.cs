@@ -1,44 +1,43 @@
-﻿using Komis.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Komis.Models;
 using Komis.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+
+// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Komis.Controllers
 {
-    public class HomeController : Controller
+    public class CarController : Controller
     {
         private readonly ICarRepository carRepository;
 
-        public HomeController(ICarRepository _carRepository)
+        public CarController(ICarRepository _carRepository)
         {
             carRepository = _carRepository;
         }
 
-        // GET: /<controller>/
+        [HttpGet]
         public IActionResult Index()
-        { 
+        {
             var cars = carRepository.GetAllCars().OrderBy(s => s.Mark);
-            
-            var homeVM = new HomeViewModel()
-            {
-                Title = "Car review",
-                CarList = cars.ToList()
-            };
-
-            return View(homeVM);
+            return View(cars);
         }
 
-        // GET: 
+        [HttpGet]
         public IActionResult Details(int id)
         {
             var car = carRepository.GetOneCarById(id);
-
             if (car == null)
             {
-                return NotFound(); 
+                return NotFound();
+            } else
+            {
+                return View(car);
             }
-
-            return View(car);
         }
+
     }
 }

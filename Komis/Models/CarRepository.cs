@@ -7,21 +7,39 @@ namespace Komis.Models
 {
     public class CarRepository : ICarRepository
     {
-        private readonly AppDbContext _appDbContext;
+        private readonly AppDbContext appDbContext;
 
-        public CarRepository(AppDbContext appDbContext)
+        public CarRepository(AppDbContext _appDbContext)
         {
-            _appDbContext = appDbContext;
+            appDbContext = _appDbContext;
+        }
+
+        public void AddCar(Car car)
+        {
+            appDbContext.Cars.Add(car);
+            appDbContext.SaveChanges();
+        }
+
+        public void DeleteCar(Car car)
+        {
+            appDbContext.Cars.Remove(car);
+            appDbContext.SaveChanges();
+        }
+
+        public void EditCar(Car car)
+        {
+            appDbContext.Cars.Update(car);
+            appDbContext.SaveChanges();
         }
 
         public IEnumerable<Car> GetAllCars()
         {
-            return _appDbContext.Cars;
+            return appDbContext.Cars;
         }
 
         public Car GetOneCarById(int carId)
         {
-            return _appDbContext.Cars.FirstOrDefault(s => s.CarId == carId);
+            return appDbContext.Cars.FirstOrDefault(s => s.CarId == carId);
         }
     }
 }
