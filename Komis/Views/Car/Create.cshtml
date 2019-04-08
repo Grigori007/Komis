@@ -1,0 +1,117 @@
+﻿@model Car
+
+<h2>Please, fulfill car data.</h2>
+
+<form asp-action="Create" class="form-horizontal" method="post" role="form">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group row">
+        <label asp-for="Mark" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Mark" class="form-control" />
+            <span asp-validation-for="Mark" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Model" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Model" class="form-control" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="ProductionDate" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ProductionDate" class="form-control" />
+            <span asp-validation-for="ProductionDate" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Mileage" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Mileage" class="form-control" />
+            <span asp-validation-for="Mileage" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="EngineCapacity" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="EngineCapacity" class="form-control" />
+            <span asp-validation-for="EngineCapacity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="FuelType" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="FuelType" class="form-control" />
+            <span asp-validation-for="FuelType" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Power" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Power" class="form-control" />
+            <span asp-validation-for="Power" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Price" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="ImageUrl" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ImageUrl" class="form-control" />
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="MiniImageUrl" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="MiniImageUrl" class="form-control" />
+            <span asp-validation-for="MiniImageUrl" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="CarDescription" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <textarea asp-for="CarDescription" class="form-control"></textarea>
+            <span asp-validation-for="CarDescription" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="IsCarOfTheWeek" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input type="checkbox" asp-for="IsCarOfTheWeek" class="form-check-input" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="IsInHQ" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input type="checkbox" asp-for="IsInHQ" class="form-check-input" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-dark" value="Send feedback!" />
+        </div>
+    </div>
+
+</form>

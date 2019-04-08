@@ -39,5 +39,31 @@ namespace Komis.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Create(Car car)
+        {
+            if (ModelState.IsValid)
+            {
+                carRepository.AddCar(car);
+                return RedirectToAction("CarAdded");
+            } else
+            {
+                return View(car);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult CarAdded()
+        {
+            return View();
+        }
+
     }
 }

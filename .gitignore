@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Komis/wwwroot/lib/css
+/Komis/wwwroot/lib/fonts
+/Komis/wwwroot/lib/js
