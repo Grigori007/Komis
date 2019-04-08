@@ -21,6 +21,7 @@ namespace Komis.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(Opinion opinion)
         {
             if (ModelState.IsValid)

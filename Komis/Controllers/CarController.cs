@@ -52,18 +52,11 @@ namespace Komis.Controllers
             if (ModelState.IsValid)
             {
                 carRepository.AddCar(car);
-                return RedirectToAction("CarAdded");
+                return RedirectToAction("Index");
             } else
             {
                 return View(car);
             }
         }
-
-        [HttpGet]
-        public IActionResult CarAdded()
-        {
-            return View();
-        }
-
     }
 }
