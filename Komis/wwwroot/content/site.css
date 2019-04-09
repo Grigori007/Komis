@@ -46,6 +46,11 @@
     margin-bottom: 3px;
 }
 
+.table-font {
+    color: white;
+}
+
 .dark-table {
-    background-color: #343a40;
+    background-color: #3c3c3c;
+    border-radius: 10px;
 }

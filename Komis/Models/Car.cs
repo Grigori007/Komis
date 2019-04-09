@@ -39,22 +39,22 @@ namespace Komis.Models
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
-        [Required(ErrorMessage = "URL is required!")]
-        [StringLength(200, ErrorMessage = "URL is too long!")]
+        // [Required(ErrorMessage = "URL is required!")]
+        // [StringLength(200, ErrorMessage = "URL is too long!")]
         public string ImageUrl { get; set; }
 
-        [Required(ErrorMessage = "URL is required!")]
-        [StringLength(200, ErrorMessage = "URL is too long!")]
+        // [Required(ErrorMessage = "URL is required!")]
+        // [StringLength(200, ErrorMessage = "URL is too long!")]
         public string MiniImageUrl { get; set; }
 
-        [Required]
+        // [Required]
         public bool IsCarOfTheWeek { get; set; }
 
         [Required(ErrorMessage = "Car description is required!")]
         [StringLength(1000, ErrorMessage = "Car description is too long!")]
         public string CarDescription { get; set; }
 
-        [Required]
+        // [Required]
         public bool IsInHQ { get; set; }
     }
 

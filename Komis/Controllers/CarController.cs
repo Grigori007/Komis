@@ -30,6 +30,7 @@ namespace Komis.Controllers
         public IActionResult Details(int id)
         {
             var car = carRepository.GetOneCarById(id);
+
             if (car == null)
             {
                 return NotFound();
@@ -58,5 +59,60 @@ namespace Komis.Controllers
                 return View(car);
             }
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var car = carRepository.GetOneCarById(id);
+
+            if (car == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return View(car);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Car car)
+        {
+            if (ModelState.IsValid)
+            {
+                carRepository.EditCar(car);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(car);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var car = carRepository.GetOneCarById(id);
+
+            if(car == null)
+            {
+                return NotFound();
+            } else
+            {
+                return View(car);
+            }
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var car = carRepository.GetOneCarById(id);
+            carRepository.DeleteCar(car);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
