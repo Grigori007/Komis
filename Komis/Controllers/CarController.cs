@@ -51,7 +51,7 @@ namespace Komis.Controllers
         {
             if (!string.IsNullOrEmpty(fileName))
             {
-                ViewBag.ImgPath = "\\images\\" + fileName;
+                ViewBag.ImgPath = "/images/" + fileName;
             }
             return View();
         }
@@ -73,7 +73,7 @@ namespace Komis.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id, string FileName)
+        public IActionResult Edit(int id, string fileName)
         {
             var car = carRepository.GetOneCarById(id);
 
@@ -81,19 +81,18 @@ namespace Komis.Controllers
             {
                 return NotFound();
             }
+            
+            
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                ViewBag.ImgPath = "/images/" + fileName;
+            }
             else
             {
-                if (!string.IsNullOrEmpty(FileName))
-                {
-                    ViewBag.ImgPath = "\\images\\" + FileName;
-                }
-                else
-                {
-                    ViewBag.ImgPath = car.MiniImageUrl;
-                }
-
-                return View(car);
+                ViewBag.ImgPath = car.MiniImageUrl;
             }
+       
+            return View(car);
         }
 
         [HttpPost]
@@ -160,12 +159,15 @@ namespace Komis.Controllers
 
             if (Convert.ToString(form["CarId"]) == string.Empty || Convert.ToString(form["CarId"]) == "0")
             {
-                return RedirectToAction(nameof(Create), new { FileName = Convert.ToString(form.Files[0].FileName) });
+                return RedirectToAction(nameof(Create), new { fileName = Convert.ToString(form.Files[0].FileName) });
             }
             else
             {
-                return RedirectToAction(nameof(Edit), new { FileName = Convert.ToString(form.Files[0].FileName), id = Convert.ToInt32(form["CarId"]) });
+                return RedirectToAction(nameof(Edit), new { id = Convert.ToInt32(form["CarId"]), fileName = Convert.ToString(form.Files[0].FileName) });
             }
+            // fileName = Convert.ToString(form.Files[0].FileName)
+            // new { imagePath } -> Create
+            // new { id = Convert.ToInt32(form["CarId"]), imagePath } -> Edit
         }
 
     }

@@ -102,6 +102,9 @@
             </div>
         </div>
 
+        <input type="hidden" asp-for="ImageUrl" value="@ViewBag.ImgPath" />
+        <input type="hidden" asp-for="MiniImageUrl" value="@ViewBag.ImgPath" />
+
         <div class="form-group row">
             <label asp-for="IsInHQ" class="col-md-2 control-label"></label>
             <div class="col-md-5">

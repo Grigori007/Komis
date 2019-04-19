@@ -87,22 +87,6 @@
             </div>
         </div>
 
-        @*<div class="form-group row">
-            <label asp-for="ImageUrl" class="col-md-2 control-label"></label>
-            <div class="col-md-5">
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
-        </div>*@
-
-        @*<div class="form-group row">
-            <label asp-for="MiniImageUrl" class="col-md-2 control-label"></label>
-            <div class="col-md-5">
-                <input asp-for="MiniImageUrl" class="form-control" />
-                <span asp-validation-for="MiniImageUrl" class="text-danger"></span>
-            </div>
-        </div>*@
-
         <div class="form-group row">
             <label asp-for="CarDescription" class="col-md-2 control-label"></label>
             <div class="col-md-5">
@@ -110,6 +94,9 @@
                 <span asp-validation-for="CarDescription" class="text-danger"></span>
             </div>
         </div>
+
+        <input type="hidden" asp-for="ImageUrl" value="@ViewBag.ImgPath" />
+        <input type="hidden" asp-for="MiniImageUrl" value="@ViewBag.ImgPath" />
 
         <div class="form-group row">
             <label asp-for="IsCarOfTheWeek" class="col-md-2 control-label"></label>
